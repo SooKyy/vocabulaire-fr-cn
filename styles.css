@@ -1,0 +1,83 @@
+body {
+    background-color: #FFF9B0; /* Jaune doux */
+    font-family: 'Amatic SC', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #FFC1CC; /* Rose pâle */
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #A2CFFE; /* Bleu ciel */
+    text-shadow: 2px 2px 4px #fff;
+}
+
+button {
+    background-color: #A2CFFE;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#question {
+    font-size: 1.8em;
+    margin: 20px 0;
+    color: #333;
+}
+
+#options button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+}
+
+#inputAnswer {
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: 2px solid #A2CFFE;
+    width: 80%;
+    margin: 10px auto;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+#feedback {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Style pour mobile */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    button, #inputAnswer {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+    #question {
+        font-size: 1.5em;
+    }
+}
