@@ -3,11 +3,12 @@ body {
     font-family: 'Amatic SC', cursive;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* Changé de center à flex-start pour éviter le débordement */
+    min-height: 100vh; /* Utilise min-height pour permettre l'expansion */
     margin: 0;
     padding: 10px;
     box-sizing: border-box;
+    overflow-y: auto; /* Permet le scroll si nécessaire, mais on va éviter ça */
 }
 
 .container {
@@ -17,12 +18,15 @@ body {
     text-align: center;
     max-width: 90%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Assure que le conteneur prend toute la largeur disponible */
+    box-sizing: border-box;
 }
 
 h1 {
     font-size: 2.5em;
     color: #A2CFFE; /* Bleu ciel */
     text-shadow: 2px 2px 4px #fff;
+    margin: 10px 0; /* Réduit la marge pour gagner de la place */
 }
 
 button {
@@ -62,6 +66,7 @@ button:hover {
     width: 80%;
     margin: 10px auto;
     font-family: 'Noto Sans SC', sans-serif;
+    display: block; /* Assure qu’il est centré */
 }
 
 #feedback {
@@ -74,11 +79,12 @@ button:hover {
     margin-top: 10px;
     background-color: #A2CFFE; /* Aligné avec les autres boutons */
     border: none;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-size: 1.2em;
+    padding: 8px 16px; /* Réduit la taille */
+    border-radius: 10px; /* Plus petit rayon */
+    font-size: 1em; /* Réduit la police */
     cursor: pointer;
     transition: transform 0.2s;
+    display: inline-block; /* Reste dans le flux */
 }
 
 #showAnswer:hover {
@@ -86,19 +92,21 @@ button:hover {
 }
 
 #score {
-    font-size: 1.5em;
+    font-size: 2em; /* Augmenté pour plus de lisibilité */
     color: #333;
-    margin: 10px 0;
+    margin: 15px 0; /* Plus d’espace autour */
+    font-weight: bold; /* Plus de contraste */
 }
 
 #categorySelect {
     background-color: #FFF9B0; /* Jaune doux assorti au fond */
     border: 2px solid #A2CFFE;
     padding: 8px;
-    font-size: 1.2em;
+    font-size: 1.5em; /* Augmenté légèrement */
     border-radius: 10px;
     margin: 10px 0;
     font-family: 'Amatic SC', cursive;
+    width: 80%; /* S’aligne avec les autres éléments */
 }
 
 #progressBar {
@@ -108,6 +116,7 @@ button:hover {
     background-color: #FFF9B0; /* Fond jaune doux */
     border: 2px solid #A2CFFE;
     border-radius: 10px;
+    display: block; /* Centré correctement */
 }
 
 #progressBar::-webkit-progress-value {
@@ -121,9 +130,10 @@ button:hover {
 }
 
 #progressText {
-    font-size: 1.2em;
+    font-size: 1.8em; /* Augmenté pour lisibilité */
     color: #333;
     margin-bottom: 20px;
+    font-weight: bold; /* Plus de contraste */
 }
 
 #mistakesSection {
@@ -142,6 +152,8 @@ button:hover {
     padding: 0;
     font-size: 1.2em;
     color: #333;
+    max-height: 150px; /* Limite la hauteur pour éviter le débordement */
+    overflow-y: auto; /* Scroll interne si trop d’erreurs */
 }
 
 #mistakesList li {
@@ -168,17 +180,46 @@ button:hover {
 
 /* Style pour mobile */
 @media (max-width: 600px) {
+    body {
+        padding: 5px; /* Réduit le padding pour gagner de la place */
+    }
+
+    .container {
+        padding: 10px; /* Réduit le padding interne */
+    }
+
     h1 {
         font-size: 2em;
     }
-    button, #inputAnswer, #categorySelect, #score, #progressText, #mistakesList li {
+
+    button, #inputAnswer, #categorySelect {
         font-size: 1em;
         padding: 8px 15px;
     }
+
     #question {
         font-size: 1.5em;
     }
+
+    #score {
+        font-size: 1.5em; /* Toujours lisible sur mobile */
+    }
+
+    #progressText {
+        font-size: 1.3em; /* Légèrement réduit mais lisible */
+    }
+
     #progressBar {
-        width: 90%;
+        width: 90%; /* Plus large sur mobile */
+    }
+
+    #mistakesList {
+        font-size: 1em;
+        max-height: 100px; /* Réduit pour mobile */
+    }
+
+    #showAnswer {
+        padding: 6px 12px; /* Encore plus petit sur mobile */
+        font-size: 0.9em;
     }
 }

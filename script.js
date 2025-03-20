@@ -42,7 +42,8 @@ let score = { correct: 0, total: 0 }; // Système de score
 let mistakes = []; // Historique des erreurs
 let seenWords = new Set(); // Mots déjà vus pour la progression
 
-// Éléments DOM
+// Éléments DOM (inchangé sauf ajout de la référence à #exercise)
+const exercise = document.getElementById("exercise"); // Ajout
 const title = document.getElementById("title");
 const langToggle = document.getElementById("langToggle");
 const question = document.getElementById("question");
@@ -62,7 +63,7 @@ const reviewMistakes = document.getElementById("reviewMistakes");
 // Configurer le bouton "Afficher la réponse"
 showAnswerButton.id = "showAnswer";
 showAnswerButton.style.display = "none";
-document.body.appendChild(showAnswerButton);
+exercise.appendChild(showAnswerButton); // Ajouté dans #exercise au lieu de body
 
 // Charger la liste de vocabulaire depuis vocabulary.json
 async function loadVocabulary() {
