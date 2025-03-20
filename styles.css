@@ -3,39 +3,43 @@ body {
     font-family: 'Amatic SC', cursive;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Changé de center à flex-start pour éviter le débordement */
-    min-height: 100vh; /* Utilise min-height pour permettre l'expansion */
+    align-items: flex-start; /* Alignement en haut */
+    height: 100vh; /* Hauteur fixe de l’écran */
     margin: 0;
-    padding: 10px;
+    padding: 5px; /* Réduit encore pour mobile */
     box-sizing: border-box;
-    overflow-y: auto; /* Permet le scroll si nécessaire, mais on va éviter ça */
+    overflow-y: hidden; /* Désactive le scroll global */
 }
 
 .container {
     background-color: #FFC1CC; /* Rose pâle */
-    padding: 20px;
+    padding: 10px; /* Réduit pour gagner de la place */
     border-radius: 20px;
     text-align: center;
     max-width: 90%;
+    width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Assure que le conteneur prend toute la largeur disponible */
     box-sizing: border-box;
+    max-height: 100vh; /* Limite la hauteur au viewport */
+    overflow-y: auto; /* Scroll interne si besoin, mais on va l’éviter */
+    display: flex;
+    flex-direction: column; /* Organise le contenu en colonne */
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2em; /* Réduit légèrement pour économiser de l’espace */
     color: #A2CFFE; /* Bleu ciel */
     text-shadow: 2px 2px 4px #fff;
-    margin: 10px 0; /* Réduit la marge pour gagner de la place */
+    margin: 5px 0; /* Marges minimales */
 }
 
 button {
     background-color: #A2CFFE;
     border: none;
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 8px 16px; /* Réduit la taille des boutons */
+    margin: 3px; /* Marges plus petites */
     border-radius: 15px;
-    font-size: 1.2em;
+    font-size: 1em; /* Plus petit mais lisible */
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -45,131 +49,135 @@ button:hover {
 }
 
 #question {
-    font-family: 'Arial', sans-serif; /* Police claire et lisible */
-    font-size: 24px; /* Taille plus grande pour le mot à deviner */
-    font-weight: bold; /* Gras pour plus de lisibilité */
-    margin-bottom: 20px; /* Espacement en dessous */
-    color: #333; /* Couleur sombre pour le contraste */
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em; /* Réduit pour mobile */
+    font-weight: bold;
+    margin: 10px 0; /* Marges réduites */
+    color: #333;
 }
 
 #options button {
     display: block;
     width: 80%;
-    margin: 10px auto;
+    margin: 5px auto; /* Marges réduites */
 }
 
 #inputAnswer {
-    padding: 10px;
-    font-size: 1.2em;
+    padding: 8px;
+    font-size: 1em; /* Réduit pour compacter */
     border-radius: 10px;
     border: 2px solid #A2CFFE;
     width: 80%;
-    margin: 10px auto;
+    margin: 5px auto; /* Marges réduites */
     font-family: 'Noto Sans SC', sans-serif;
-    display: block; /* Assure qu’il est centré */
+    display: block;
 }
 
 #feedback {
-    font-size: 1.5em;
-    margin: 20px 0;
+    font-size: 1.2em; /* Réduit pour économiser de l’espace */
+    margin: 10px 0; /* Marges réduites */
     color: #333;
 }
 
 #showAnswer {
-    margin-top: 10px;
-    background-color: #A2CFFE; /* Aligné avec les autres boutons */
+    margin-top: 5px;
+    background-color: #A2CFFE;
     border: none;
-    padding: 8px 16px; /* Réduit la taille */
-    border-radius: 10px; /* Plus petit rayon */
-    font-size: 1em; /* Réduit la police */
+    padding: 6px 12px; /* Encore plus petit */
+    border-radius: 10px;
+    font-size: 0.9em;
     cursor: pointer;
     transition: transform 0.2s;
-    display: inline-block; /* Reste dans le flux */
+    display: inline-block;
 }
 
 #showAnswer:hover {
-    transform: scale(1.1); /* Même effet que les autres boutons */
+    transform: scale(1.1);
 }
 
 #score {
-    font-size: 2em; /* Augmenté pour plus de lisibilité */
+    font-size: 1.8em; /* Toujours lisible mais compact */
     color: #333;
-    margin: 15px 0; /* Plus d’espace autour */
-    font-weight: bold; /* Plus de contraste */
+    margin: 10px 0; /* Marges réduites */
+    font-weight: bold;
 }
 
 #categorySelect {
-    background-color: #FFF9B0; /* Jaune doux assorti au fond */
+    background-color: #FFF9B0;
     border: 2px solid #A2CFFE;
-    padding: 8px;
-    font-size: 1.5em; /* Augmenté légèrement */
+    padding: 6px; /* Réduit */
+    font-size: 1.2em; /* Plus compact mais lisible */
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 5px 0; /* Marges réduites */
     font-family: 'Amatic SC', cursive;
-    width: 80%; /* S’aligne avec les autres éléments */
+    width: 80%;
 }
 
 #progressBar {
     width: 80%;
-    height: 20px;
-    margin: 10px auto;
-    background-color: #FFF9B0; /* Fond jaune doux */
+    height: 15px; /* Réduit la hauteur */
+    margin: 5px auto; /* Marges réduites */
+    background-color: #FFF9B0;
     border: 2px solid #A2CFFE;
     border-radius: 10px;
-    display: block; /* Centré correctement */
+    display: block;
 }
 
 #progressBar::-webkit-progress-value {
-    background-color: #A2CFFE; /* Bleu ciel pour la progression */
+    background-color: #A2CFFE;
     border-radius: 8px;
 }
 
 #progressBar::-moz-progress-bar {
-    background-color: #A2CFFE; /* Compatibilité Firefox */
+    background-color: #A2CFFE;
     border-radius: 8px;
 }
 
 #progressText {
-    font-size: 1.8em; /* Augmenté pour lisibilité */
+    font-size: 1.5em; /* Compact mais lisible */
     color: #333;
-    margin-bottom: 20px;
-    font-weight: bold; /* Plus de contraste */
+    margin: 5px 0; /* Marges réduites */
+    font-weight: bold;
 }
 
 #mistakesSection {
-    margin-top: 20px;
+    margin-top: 10px; /* Réduit */
+    flex-grow: 1; /* Permet à cette section de prendre l’espace restant */
+    display: flex;
+    flex-direction: column;
 }
 
 #mistakesSection h3 {
-    font-size: 1.8em;
+    font-size: 1.5em; /* Réduit */
     color: #A2CFFE;
     text-shadow: 1px 1px 2px #fff;
-    margin-bottom: 10px;
+    margin: 5px 0; /* Marges réduites */
 }
 
 #mistakesList {
     list-style-type: none;
     padding: 0;
-    font-size: 1.2em;
+    font-size: 1em; /* Plus petit */
     color: #333;
-    max-height: 150px; /* Limite la hauteur pour éviter le débordement */
+    max-height: 100px; /* Hauteur fixe pour limiter l’espace */
     overflow-y: auto; /* Scroll interne si trop d’erreurs */
+    margin: 5px 0;
 }
 
 #mistakesList li {
-    margin: 5px 0;
-    background-color: #FFF9B0; /* Jaune doux pour chaque élément */
-    padding: 5px;
+    margin: 3px 0; /* Marges réduites */
+    background-color: #FFF9B0;
+    padding: 3px; /* Réduit */
     border-radius: 8px;
 }
 
 #reviewMistakes {
     background-color: #A2CFFE;
     border: none;
-    padding: 10px 20px;
-    margin: 10px 0;
+    padding: 8px 16px;
+    margin: 5px 0; /* Marges réduites */
     border-radius: 15px;
-    font-size: 1.2em;
+    font-size: 1em;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -181,45 +189,51 @@ button:hover {
 /* Style pour mobile */
 @media (max-width: 600px) {
     body {
-        padding: 5px; /* Réduit le padding pour gagner de la place */
+        padding: 2px; /* Encore plus compact */
     }
 
     .container {
-        padding: 10px; /* Réduit le padding interne */
+        padding: 5px; /* Ultra compact */
+        max-height: 100vh; /* S’assure qu’il ne dépasse pas l’écran */
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 1.8em; /* Plus petit sur mobile */
     }
 
     button, #inputAnswer, #categorySelect {
-        font-size: 1em;
-        padding: 8px 15px;
+        font-size: 0.9em;
+        padding: 6px 12px; /* Réduit davantage */
     }
 
     #question {
-        font-size: 1.5em;
+        font-size: 1.2em; /* Plus compact */
     }
 
     #score {
-        font-size: 1.5em; /* Toujours lisible sur mobile */
+        font-size: 1.5em; /* Toujours lisible */
     }
 
     #progressText {
-        font-size: 1.3em; /* Légèrement réduit mais lisible */
+        font-size: 1.2em; /* Compact mais clair */
     }
 
     #progressBar {
-        width: 90%; /* Plus large sur mobile */
+        width: 90%;
+        height: 12px; /* Plus fin */
     }
 
     #mistakesList {
-        font-size: 1em;
-        max-height: 100px; /* Réduit pour mobile */
+        font-size: 0.9em;
+        max-height: 80px; /* Encore plus compact */
     }
 
     #showAnswer {
-        padding: 6px 12px; /* Encore plus petit sur mobile */
-        font-size: 0.9em;
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+
+    #feedback {
+        font-size: 1em; /* Réduit pour mobile */
     }
 }
