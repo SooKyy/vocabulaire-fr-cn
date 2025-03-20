@@ -73,6 +73,8 @@ async function loadVocabulary() {
         filteredVocabulary = [...vocabulary]; // Copie initiale
         populateCategories(); // Remplir le menu des catégories
         feedback.textContent = "";
+        updateProgress(); // Mettre à jour après chargement
+        updateScore();
         generateExercise();
     } catch (error) {
         console.error("Erreur lors du chargement du vocabulaire :", error);
@@ -268,8 +270,8 @@ function updateScore() {
 function updateProgress() {
     const totalWords = filteredVocabulary.length;
     const seenCount = seenWords.size;
-    const percentage = (seenCount / totalWords) * 100;
-    progressBar.value = percentage;
+    let percentage = totalWords > 0 ? (seenCount / totalWords) * 100 : 0; // Éviter NaN
+    progressBar.value = percentage; // Assigner une valeur valide
     progressText.textContent = `Progression : ${seenCount}/${totalWords}`;
 }
 
@@ -283,7 +285,7 @@ function updateLanguage() {
     showAnswerButton.textContent = texts[currentLang].showAnswer;
     reviewMistakes.textContent = texts[currentLang].reviewMistakes;
     updateScore();
-    updateProgress();
+    if (filteredVocabulary.length > 0) updateProgress(); // Appeler seulement si chargé
 }
 
 // Initialisation
