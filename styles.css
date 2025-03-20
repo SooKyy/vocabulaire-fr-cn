@@ -41,9 +41,11 @@ button:hover {
 }
 
 #question {
-    font-size: 1.8em;
-    margin: 20px 0;
-    color: #333;
+    font-family: 'Arial', sans-serif; /* Police claire et lisible */
+    font-size: 24px; /* Taille plus grande pour le mot à deviner */
+    font-weight: bold; /* Gras pour plus de lisibilité */
+    margin-bottom: 20px; /* Espacement en dessous */
+    color: #333; /* Couleur sombre pour le contraste */
 }
 
 #options button {
@@ -68,16 +70,115 @@ button:hover {
     color: #333;
 }
 
+#showAnswer {
+    margin-top: 10px;
+    background-color: #A2CFFE; /* Aligné avec les autres boutons */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#showAnswer:hover {
+    transform: scale(1.1); /* Même effet que les autres boutons */
+}
+
+#score {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+}
+
+#categorySelect {
+    background-color: #FFF9B0; /* Jaune doux assorti au fond */
+    border: 2px solid #A2CFFE;
+    padding: 8px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-family: 'Amatic SC', cursive;
+}
+
+#progressBar {
+    width: 80%;
+    height: 20px;
+    margin: 10px auto;
+    background-color: #FFF9B0; /* Fond jaune doux */
+    border: 2px solid #A2CFFE;
+    border-radius: 10px;
+}
+
+#progressBar::-webkit-progress-value {
+    background-color: #A2CFFE; /* Bleu ciel pour la progression */
+    border-radius: 8px;
+}
+
+#progressBar::-moz-progress-bar {
+    background-color: #A2CFFE; /* Compatibilité Firefox */
+    border-radius: 8px;
+}
+
+#progressText {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#mistakesSection {
+    margin-top: 20px;
+}
+
+#mistakesSection h3 {
+    font-size: 1.8em;
+    color: #A2CFFE;
+    text-shadow: 1px 1px 2px #fff;
+    margin-bottom: 10px;
+}
+
+#mistakesList {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+#mistakesList li {
+    margin: 5px 0;
+    background-color: #FFF9B0; /* Jaune doux pour chaque élément */
+    padding: 5px;
+    border-radius: 8px;
+}
+
+#reviewMistakes {
+    background-color: #A2CFFE;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#reviewMistakes:hover {
+    transform: scale(1.1);
+}
+
 /* Style pour mobile */
 @media (max-width: 600px) {
     h1 {
         font-size: 2em;
     }
-    button, #inputAnswer {
+    button, #inputAnswer, #categorySelect, #score, #progressText, #mistakesList li {
         font-size: 1em;
         padding: 8px 15px;
     }
     #question {
         font-size: 1.5em;
+    }
+    #progressBar {
+        width: 90%;
     }
 }

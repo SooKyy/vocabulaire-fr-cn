@@ -11,6 +11,12 @@
     <div class="container">
         <h1 id="title">Exercices de Vocabulaire</h1>
         <button id="langToggle">Passer en Chinois</button>
+        <div id="score">Score : 0/0</div> <!-- Ajout du score -->
+        <select id="categorySelect"> <!-- Ajout des catégories -->
+            <option value="all">Toutes les catégories</option>
+        </select>
+        <progress id="progressBar" value="0" max="100"></progress> <!-- Ajout de la barre -->
+        <div id="progressText">Progression : 0/0</div> <!-- Ajout du texte de progression -->
         <div id="exercise">
             <p id="question"></p>
             <div id="options"></div>
@@ -19,6 +25,11 @@
         </div>
         <p id="feedback"></p>
         <button id="nextExercise">Exercice suivant</button>
+        <div id="mistakesSection"> <!-- Ajout de l’historique des erreurs -->
+            <h3>Mots incorrects</h3>
+            <ul id="mistakesList"></ul>
+            <button id="reviewMistakes">Revoir les erreurs</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
